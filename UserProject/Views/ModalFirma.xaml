@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+                xmlns:skia="clr-namespace:SkiaSharp.Views.Maui.Controls;assembly=SkiaSharp.Views.Maui.Controls"
+               x:Class="UserProject.ModalFirma">
+
+    <VerticalStackLayout Padding="0" Spacing="5" >
+
+        <Button 
+            Text="✕"
+            FontSize="22"
+            TextColor="black"
+            HorizontalOptions="End"
+            VerticalOptions="Start"
+            BackgroundColor="Transparent"
+            Padding="0"
+            Margin="0,-5,-5,0"
+         
+            Clicked="CerrarModal"/>
+        
+        <Label Text="Agregue su Firma"
+               FontAttributes="Bold"
+               TextColor="#00833c"
+               FontSize="20"
+               HorizontalOptions="Center" />
+        
+        <!--Espacio para que el usuario escriba-->
+
+        <Border StrokeThickness="2"
+                Stroke="#A0A0A0"
+                StrokeShape="RoundRectangle 10"
+                BackgroundColor="#F9F9F9"
+                Margin="10">
+
+            <skia:SKCanvasView
+                    x:Name="FirmaCanvas"
+                    HeightRequest="250"
+                    VerticalOptions="Center"
+                    BackgroundColor="#f0f0f0"
+                    PaintSurface="DibujarFirma"
+                    EnableTouchEvents="True"
+                    Touch="CapturarFirma" />
+
+                    </Border>
+
+        <!--
+        PaintSurface -> es el evento del control.
+        DibujarFirma -> es el nombre del método (en tu código) que manejará ese evento.
+        -->
+
+        <!--
+        Touch ->  Recibe la información de cada toque del usuario
+        CapturarFirma -> Dibuja en tiempo real según los movimientos del dedo o mouse.
+        -->
+
+
+        <HorizontalStackLayout Spacing="20"
+                               HorizontalOptions="Center"
+                               VerticalOptions="End">
+
+            <Button 
+                    Text="Limpiar"
+                    Style="{StaticResource BotonStyle}"
+                    Clicked="LimpiarFirma" />
+            <Button 
+                    Text="Guardar"
+                    Style="{StaticResource BotonStyle}"
+                    Clicked="GuardarFirma" />
+
+        </HorizontalStackLayout>
+
+        
+
+    </VerticalStackLayout>
+    
+</toolkit:Popup>

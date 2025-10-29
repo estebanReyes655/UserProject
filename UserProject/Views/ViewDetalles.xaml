@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UserProject.Views.ViewDetalles">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20">
+            <Border BackgroundColor="#ecb300"
+                    Stroke="Transparent"
+                    StrokeShape="RoundRectangle 12"
+                    Margin="10, 0">
+                <Grid HeightRequest="200">
+                    <Border
+                           WidthRequest="150"
+                           HeightRequest="150"
+                            StrokeShape="RoundRectangle 80"
+                           VerticalOptions="End"
+                           HorizontalOptions="Center">
+                        <Image Source="fotoperfil.jpg"
+                               HeightRequest="150"
+                               WidthRequest="150"
+                               Aspect="AspectFill"/>
+
+                    </Border>
+                </Grid>
+
+            </Border>
+
+
+
+            <HorizontalStackLayout Spacing="15"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center">
+
+                <Border  BackgroundColor="#fff"
+                         Stroke="#ecb300"
+                         StrokeShape="RoundRectangle 50"
+                         Padding="15, 5">
+
+                    <Label Text="Felipe Sanchez"
+                           FontSize="18"
+                           TextColor="#00833c"
+                           VerticalTextAlignment="Center"
+                           HorizontalTextAlignment="Center"/>
+                </Border>
+
+                <Border  BackgroundColor="#fff"
+                          Stroke="#ecb300"
+                          StrokeShape="RoundRectangle 50"
+                          Padding="15, 5">
+
+                    <Label Text="fSanchez@gmail.com"
+                            FontSize="18"
+                            TextColor="#00833c"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"/>
+                </Border>
+
+
+
+            </HorizontalStackLayout>
+
+            <Border BackgroundColor="#fff"
+                         Stroke="#ecb300"
+                         StrokeShape="RoundRectangle 12"
+                         Padding="10"
+                         Margin="10, 0">
+                <VerticalStackLayout Padding="20" Spacing="20">
+                    <Label Text="INFORMACIÓN BÁSICA"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           TextColor="#00833c"/>
+
+
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="Documento:" FontAttributes="Bold" FontSize="16"/>
+                        <Label Text="109476362" FontSize="16"/>
+                    </HorizontalStackLayout>
+                    
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="Telefono:" FontAttributes="Bold" FontSize="16"/>
+                        <Label Text="3127597685" FontSize="16"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="Dirección:" FontAttributes="Bold" FontSize="16"/>
+                        <Label Text="Calle 20 #04-8 Miraflorez" FontSize="16"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="Edad:" FontAttributes="Bold" FontSize="16"/>
+                        <Label Text="29 Años" FontSize="16"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="Ciudad:" FontAttributes="Bold" FontSize="16"/>
+                        <Label Text="Guadalajara" FontSize="16"/>
+                    </HorizontalStackLayout>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <Border BackgroundColor="#fff"
+             Stroke="#ecb300"
+             StrokeShape="RoundRectangle 12"
+             Padding="10"
+             Margin="10, 0">
+                <VerticalStackLayout Padding="20" Spacing="20">
+                    <Label Text="FIRMA"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           TextColor="#00833c"/>
+                    
+                    <!--AQUI ESTARIA LA IMAGEN DE LA VISTA DEL PERFIL --> 
+                    
+                    <HorizontalStackLayout Spacing="20" 
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center">
+                        <Button 
+                        Text="Editar Firma"
+                        Style="{StaticResource BotonStyle}"
+                        Clicked="EditarFirma" />
+
+                        <Button 
+                        Text="Ver Firma"
+                        Style="{StaticResource BotonStyle}"
+                        Clicked="VerFirma" />
+                    </HorizontalStackLayout>
+
+
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <HorizontalStackLayout Spacing="20" 
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center">
+
+                <Button 
+                    Text="Editar"
+                    Style="{StaticResource BotonStyle}"
+                    Clicked="EditarInfo" />
+            </HorizontalStackLayout>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
