@@ -5,6 +5,7 @@ using Userproject.Data;
 using UserProject.ViewModels;
 using UserProject.Views; //Importacion de BD
 
+
 namespace UserProject
 {
     public static class MauiProgram
@@ -33,6 +34,7 @@ namespace UserProject
 
             //----------- Registrar el ViewModel y la Vista
             builder.Services.AddTransient<UserViewModel>();
+            builder.Services.AddSingleton<CrearUserViewModel>();
             // Definicion de vistas
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<ViewCrearUser>();

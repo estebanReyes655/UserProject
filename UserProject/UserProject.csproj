@@ -20,6 +20,10 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 
+		<LangVersion>latest</LangVersion> <!--  ESTA LÍNEA ACTIVA LOS SOURCE GENERATORS -->
+		
+
+
 		<!-- Display name -->
 		<ApplicationTitle>UserProject</ApplicationTitle>
 
@@ -60,8 +64,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="ViewModels\CrearViewModel.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="12.2.0" />
 		<PackageReference Include="CommunityToolkit.Maui.MediaElement" Version="6.1.2" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.8" />
 		<PackageReference Include="SkiaSharp" Version="3.119.1" />

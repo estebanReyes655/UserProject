@@ -17,6 +17,9 @@ namespace UserProject
 
             //Ruta para Crear Usuario
             Routing.RegisterRoute("ViewCrearRoute", typeof(ViewCrearUser));
+
+            //Ruta para VolverInicio
+            Routing.RegisterRoute("ViewInicioRoute", typeof(MainPage));
         }
     }
 }

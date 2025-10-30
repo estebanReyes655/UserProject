@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UserProject.Views.ViewCrearUser"
-             Title="Crea un Nuevo Usuario">
+             Title="Crear Nuevo Usuario">
 
     <ScrollView>
         <VerticalStackLayout Spacing="20">
@@ -19,41 +19,36 @@
                            FontAttributes="Bold"
                            FontSize="18"
                            TextColor="#00833c"/>
-                    <HorizontalStackLayout Spacing="10">
+                    <HorizontalStackLayout>
                         <Label Text="Nombre:" FontAttributes="Bold" FontSize="16"/>
-                        <Label Text="Esteban Reyes" FontSize="16"/>
+                        <Entry Text="{Binding NombreUsuario}" Placeholder="Ingrese su nombre" FontSize="16" WidthRequest="200"/>
                     </HorizontalStackLayout>
                     
-                    <HorizontalStackLayout Spacing="10">
+                    <VerticalStackLayout>
                         <Label Text="Documento:" FontAttributes="Bold" FontSize="16"/>
-                        <Label Text="10584637879" FontSize="16"/>
-                    </HorizontalStackLayout>
+                        <Entry Text="{Binding DocumentoUsuario}" Placeholder="100.222.333.45" Keyboard="Numeric" FontSize="16" WidthRequest="200"/>
+                    </VerticalStackLayout>
                     
-                    <HorizontalStackLayout Spacing="10">
+                    <VerticalStackLayout>
                         <Label Text="Correo" FontAttributes="Bold" FontSize="16"/>
-                        <Label Text="correo@example.com" FontSize="16"/>
-                    </HorizontalStackLayout>
+                        <Entry Text="{Binding CorreoUsuario}" Placeholder="correo@example.com" FontSize="16" WidthRequest="200"/>
+                    </VerticalStackLayout>
 
 
-                    <HorizontalStackLayout Spacing="10">
+                    <VerticalStackLayout>
                         <Label Text="Telefono:" FontAttributes="Bold" FontSize="16"/>
-                        <Label Text="3127597685" FontSize="16"/>
-                    </HorizontalStackLayout>
+                        <Entry Text="{Binding TelefonoUsuario}" Placeholder="312 324 5678" Keyboard="Telephone"  FontSize="16" WidthRequest="200"/>
+                    </VerticalStackLayout>
 
-                    <HorizontalStackLayout Spacing="10">
+                    <VerticalStackLayout>
                         <Label Text="Dirección:" FontAttributes="Bold" FontSize="16"/>
-                        <Label Text="Calle 20 #04-8 Miraflorez" FontSize="16"/>
-                    </HorizontalStackLayout>
+                        <Entry Text="{Binding DireccionUsuario}" Placeholder="Calle 1 #2-34 Barrio" FontSize="16" WidthRequest="200"/>
+                    </VerticalStackLayout>
 
-                    <HorizontalStackLayout Spacing="10">
+                    <VerticalStackLayout>
                         <Label Text="Edad:" FontAttributes="Bold" FontSize="16"/>
-                        <Label Text="29 Años" FontSize="16"/>
-                    </HorizontalStackLayout>
-
-                    <HorizontalStackLayout Spacing="10">
-                        <Label Text="Ciudad:" FontAttributes="Bold" FontSize="16"/>
-                        <Label Text="Guadalajara" FontSize="16"/>
-                    </HorizontalStackLayout>
+                        <Entry Text="{Binding EdadUsuario}" Placeholder="18"  Keyboard="Numeric"  FontSize="16" WidthRequest="200"/>
+                    </VerticalStackLayout>
 
                 </VerticalStackLayout>
 
@@ -69,6 +64,21 @@
                            FontAttributes="Bold"
                            FontSize="18"
                            TextColor="#00833c"/>
+                    
+                    <!--Aquui se mostrara la imagen de la firma cuando se agregue-->
+
+                    <Border x:Name="contenedorFirma" 
+                            IsVisible="False" 
+                            Stroke="#ecb300"
+                            StrokeShape="RoundRectangle 12"
+                            Padding="5">
+                        <Image x:Name="ImagenFirma" 
+                               HeightRequest="150"
+                               Aspect="AspectFit"
+                               BackgroundColor="White"/>
+
+
+                    </Border>
 
                     <Button 
                         Text="Agregar Firma"
@@ -80,20 +90,15 @@
 
             </Border>
 
-            <HorizontalStackLayout Spacing="20" 
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="Center">
-                <Button 
-                    Text="Volver"
-                    Style="{StaticResource BotonStyle}"
-                    Clicked="VolverInicio" />
 
+            <VerticalStackLayout Padding="20" Spacing="20">
                 <Button 
-                    Text="Guardar"
-                    Style="{StaticResource BotonStyle}"
-                    Clicked="GuardarCambios" />
-            </HorizontalStackLayout>
+                        Text="Guardar Informacion"
+                        Style="{StaticResource BotonStyle}"
+                        Command="{Binding GuardarCommand}"/>
+                <!--Lammar comando que permite guardar-->
 
+            </VerticalStackLayout>
 
         </VerticalStackLayout>
     </ScrollView>

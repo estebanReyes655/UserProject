@@ -15,11 +15,36 @@ namespace UserProject.Views
             _ViewModel = viewModel;
             BindingContext = _ViewModel;
 
-            _ = _ViewModel.CargarUsuariosAsync();
+ 
         }
+
+        //  Este método recarga los usuarios
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await _ViewModel.CargarUsuariosAsync();
+
+            await DisplayAlert("Debug", $"Usuarios cargados: {_ViewModel.Users.Count}", "OK");
+        }
+
+
+
+
+
+        // ----- Rutas de botones de navegacion
+
         private async void CrearNuevo(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("ViewCrearRoute");
+        }
+
+        private async void VerOneUser(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("ViewDetallesRoute");
+        }
+        private async void VolverInicio(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("ViewInicioRoute");
         }
 
 

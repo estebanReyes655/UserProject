@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using Userproject.Data;
 using UserProject.Models;
 
+// -------- ESTE VIEW MODEL ES PARA LISTAR LOS USUARIOS
+
 namespace UserProject.ViewModels
 {
     public class UserViewModel : INotifyPropertyChanged //Esto es para notificar actualizaciones a la vista, en caso de no usar esto se usa el 'BaseModel'

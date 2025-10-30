@@ -6,11 +6,39 @@
     <ScrollView>
         <VerticalStackLayout Spacing="20">
 
-
             <Button 
                         Text="Crear Nuevo"
                         Style="{StaticResource BotonStyle}"
                         Clicked="CrearNuevo" />
+
+            <CollectionView ItemsSource="{Binding Users}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BackgroundColor="#fff"
+                                Stroke="#ecb300"
+                                StrokeShape="RoundRectangle 12"
+                                Padding="10"
+                                Margin="10, 0">
+                            <HorizontalStackLayout>
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding nombreUser}" FontSize="18" FontAttributes="Bold"/>
+                                    <Label Text="{Binding documentoUser}" FontSize="12" />
+                                    <Label Text="{Binding correoUser}" FontSize="12" />
+                                    
+                                </VerticalStackLayout>
+                                <Button 
+                                    
+                                    
+                                    
+                                        Text="Ver"
+                                        Style="{StaticResource BotonStyle}"
+                                        Clicked="VerOneUser" />
+                            </HorizontalStackLayout>
+                        </Border>
+                            
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
             
             
 

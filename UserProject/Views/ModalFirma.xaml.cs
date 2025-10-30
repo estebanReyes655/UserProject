@@ -10,6 +10,10 @@ public partial class ModalFirma : Popup
 	// -----lISTA PÁRA GUARDAR TRAZOS DE FIRMA
     private List<SKPath> paths = new();
     private SKPath currentPath;
+
+    //Propiedad publica para guardar la firma
+    public string firmaBase64 { get; private set; }
+
     public ModalFirma()
 	{
 		InitializeComponent();
@@ -59,12 +63,48 @@ public partial class ModalFirma : Popup
     {
         CloseAsync();
     }
+    //Metodo para limpiar la firma
     private void LimpiarFirma(object sender, EventArgs e)
 	{
-		
-	}
-	private void GuardarFirma(object sender, EventArgs e)
+		paths.Clear();  //Esto limpia todos los trazos 
+        ((SKCanvasView)FirmaCanvas).InvalidateSurface();//Este hace que el canvas salga de nuevo en blanco, regenera el cnavas en blanco 
+    }
+	private async void GuardarFirma(object sender, EventArgs e)
 	{
-		
+        //Crear un bitmap con el tamaño del canvas
+        //Bitmap, (Maapa de bits) imagen digital formada por pixeles
+        //Aqui se obtendra el ancvho y alto del dibujo de la firma
+        int widthFirma = (int)FirmaCanvas.CanvasSize.Width;
+        int heightFirma = (int)FirmaCanvas.CanvasSize.Height;
+
+        //Se crea el bitmap Vacio del tamaño del canvas
+        using var bitmap = new SKBitmap(widthFirma, heightFirma); //Vairbales definidas para el ancho y alto
+        //Crea un canvas temporal para pintar sobre el bitmap
+        using var canvas = new SKCanvas(bitmap);
+        canvas.Clear(SKColors.White);
+
+        //Crear llapiz virtual para escribir
+        using var pincel = new SKPaint 
+        {
+            Color = SKColors.Black,
+            StrokeWidth = 4, 
+            IsAntialias = true, //Suavizar Bordes de lineas
+            Style = SKPaintStyle.Stroke
+        };
+
+        foreach (var path in paths) //path es la lista de trazos
+            canvas.DrawPath(path, pincel); // Aqui dice que dibujar el trazo con el pincel 
+
+
+        // Convertir la firma a imagen y luego a base64 
+        using var image = SKImage.FromBitmap(bitmap);
+        using var data = image.Encode(SKEncodedImageFormat.Png, 100);
+        // GUARDAR EN LA PROPIEDAD PÚBLICA
+        firmaBase64 = Convert.ToBase64String(data.ToArray());
+
+        //Cerrar el modal y mostrar la firma 
+         CloseAsync();
+
+
 	}
 }
