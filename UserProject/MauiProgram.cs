@@ -1,7 +1,9 @@
 ﻿using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui; // Se importa la libreria para la firma
 using SkiaSharp.Views.Maui.Controls.Hosting;
-using Userproject.Data; //Importacion de BD
+using Userproject.Data;
+using UserProject.ViewModels;
+using UserProject.Views; //Importacion de BD
 
 namespace UserProject
 {
@@ -28,6 +30,13 @@ namespace UserProject
             //Crear nueva instancia  de BD
             builder.Services.AddSingleton(new servicioBaseDatos(dbPath));
 
+
+            //----------- Registrar el ViewModel y la Vista
+            builder.Services.AddTransient<UserViewModel>();
+            // Definicion de vistas
+            builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<ViewCrearUser>();
+            builder.Services.AddTransient<ViewDetalles>();
 
 #if DEBUG
     		builder.Logging.AddDebug();

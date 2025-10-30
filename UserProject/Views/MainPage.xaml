@@ -10,7 +10,7 @@
             <Button 
                         Text="Crear Nuevo"
                         Style="{StaticResource BotonStyle}"
-                        Clicked="VerDetalles" />
+                        Clicked="CrearNuevo" />
             
             
 
