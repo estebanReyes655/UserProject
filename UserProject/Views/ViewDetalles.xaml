@@ -143,7 +143,6 @@
                     Style="{StaticResource BotonStyle}"
                     Clicked="EditarInfo" />
             </HorizontalStackLayout>
-anizadas
 
         </VerticalStackLayout>
     </ScrollView>

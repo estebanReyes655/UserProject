@@ -34,9 +34,12 @@
                                         Style="{StaticResource BotonStyle}"
                                         WidthRequest="100"
                                         Shadow="{x:Null}"
-                                        Clicked="VerOneUser"
                                         VerticalOptions="Center"
-                                        HorizontalOptions="End"/>
+                                        HorizontalOptions="End"
+                                  
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:UserViewModel}}, Path=VerDetallesCommand}"
+                                        CommandParameter="{Binding .}"/>
+                                        <!--Se usa  command, para  obtener el usuario, se le dice al usuario el comando a ejecutar -->
                             </Grid>
                         </Border>
                             
