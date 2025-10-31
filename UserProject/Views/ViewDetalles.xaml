@@ -37,7 +37,7 @@
                          StrokeShape="RoundRectangle 50"
                          Padding="15, 5">
 
-                    <Label Text="Felipe Sanchez"
+                    <Label x:Name="lblNombre"
                            FontSize="18"
                            TextColor="#00833c"
                            VerticalTextAlignment="Center"
@@ -49,7 +49,7 @@
                           StrokeShape="RoundRectangle 50"
                           Padding="15, 5">
 
-                    <Label Text="fSanchez@gmail.com"
+                    <Label x:Name="lblCorreo"
                             FontSize="18"
                             TextColor="#00833c"
                             VerticalTextAlignment="Center"
@@ -74,28 +74,24 @@
 
                     <HorizontalStackLayout Spacing="10">
                         <Label Text="Documento:" FontAttributes="Bold" FontSize="16"/>
-                        <Label Text="109476362" FontSize="16"/>
+                        <Label x:Name="lblDocumento" FontSize="16"/>
                     </HorizontalStackLayout>
                     
                     <HorizontalStackLayout Spacing="10">
                         <Label Text="Telefono:" FontAttributes="Bold" FontSize="16"/>
-                        <Label Text="3127597685" FontSize="16"/>
+                        <Label x:Name="lblTelefono" FontSize="16"/>
                     </HorizontalStackLayout>
 
                     <HorizontalStackLayout Spacing="10">
                         <Label Text="Dirección:" FontAttributes="Bold" FontSize="16"/>
-                        <Label Text="Calle 20 #04-8 Miraflorez" FontSize="16"/>
+                        <Label x:Name="lblDireccion" FontSize="16"/>
                     </HorizontalStackLayout>
 
                     <HorizontalStackLayout Spacing="10">
                         <Label Text="Edad:" FontAttributes="Bold" FontSize="16"/>
-                        <Label Text="29 Años" FontSize="16"/>
+                        <Label x:Name="lblEdad" FontSize="16"/>
                     </HorizontalStackLayout>
 
-                    <HorizontalStackLayout Spacing="10">
-                        <Label Text="Ciudad:" FontAttributes="Bold" FontSize="16"/>
-                        <Label Text="Guadalajara" FontSize="16"/>
-                    </HorizontalStackLayout>
 
                 </VerticalStackLayout>
 
@@ -112,8 +108,13 @@
                            FontSize="18"
                            TextColor="#00833c"/>
                     
-                    <!--AQUI ESTARIA LA IMAGEN DE LA VISTA DEL PERFIL --> 
-                    
+                    <!--AQUI ESTARIA LA IMAGEN DE LA FIRMA -->
+
+                    <Image x:Name="imgFirma"
+                           HeightRequest="120"
+                           Aspect="AspectFit"
+                           BackgroundColor="#f7f7f7"/>
+
                     <HorizontalStackLayout Spacing="20" 
                        HorizontalOptions="Center"
                        VerticalOptions="Center">

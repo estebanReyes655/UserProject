@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui.Behaviors;
+using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -29,13 +30,13 @@ namespace UserProject.ViewModels
         public UserViewModel(servicioBaseDatos servicioBD)
         {
             _servicioBD = servicioBD;
-            
+
         }
 
         //Lista observable para mostrar los usuarios en pantalla 
         //ObservableCollection -> es la coleccion por defecto de .net para que se actualice automaticamente
         public ObservableCollection<User> Users { get; set; } = new();
-        
+
         //Metodo asincrono para cargar los usuarios desde la BD
         public async Task CargarUsuariosAsync()
         {
@@ -59,7 +60,7 @@ namespace UserProject.ViewModels
         public async Task EliminarUsuarioAsync(User user)
         {
             await _servicioBD.EliminarUserAsync(user);
-            
+
         }
 
         //Metodo para notificar cambios
@@ -70,5 +71,23 @@ namespace UserProject.ViewModels
         }
 
 
+        [RelayCommand]
+        public async Task VerDetalles(User userSeleccionado)
+        {
+            if (userSeleccionado == null)
+            {
+                return;
+
+                var navParam = new Dictionary<string, object>
+                {
+                    { "userSeleccionado", userSeleccionado }
+                };
+
+                await Shell.Current.GoToAsync("ViewDetallesRoute", navParam);
+            }
+        }
+
+
     }
 }
+
