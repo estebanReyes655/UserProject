@@ -19,35 +19,35 @@
                            FontAttributes="Bold"
                            FontSize="18"
                            TextColor="#00833c"/>
-                    <HorizontalStackLayout>
+                    <VerticalStackLayout>
                         <Label Text="Nombre:" FontAttributes="Bold" FontSize="16"/>
-                        <Entry Text="{Binding NombreUsuario}" Placeholder="Ingrese su nombre" FontSize="16" WidthRequest="200"/>
-                    </HorizontalStackLayout>
+                        <Entry Text="{Binding NombreUsuario}" Placeholder="Ingrese su nombre" FontSize="16" HorizontalOptions="Fill"/>
+                    </VerticalStackLayout>
                     
                     <VerticalStackLayout>
                         <Label Text="Documento:" FontAttributes="Bold" FontSize="16"/>
-                        <Entry Text="{Binding DocumentoUsuario}" Placeholder="100.222.333.45" Keyboard="Numeric" FontSize="16" WidthRequest="200"/>
+                        <Entry Text="{Binding DocumentoUsuario}" Placeholder="100.222.333.45" Keyboard="Numeric" FontSize="16" HorizontalOptions="Fill"/>
                     </VerticalStackLayout>
                     
                     <VerticalStackLayout>
                         <Label Text="Correo" FontAttributes="Bold" FontSize="16"/>
-                        <Entry Text="{Binding CorreoUsuario}" Placeholder="correo@example.com" FontSize="16" WidthRequest="200"/>
+                        <Entry Text="{Binding CorreoUsuario}" Placeholder="correo@example.com" FontSize="16" HorizontalOptions="Fill"/>
                     </VerticalStackLayout>
 
 
                     <VerticalStackLayout>
                         <Label Text="Telefono:" FontAttributes="Bold" FontSize="16"/>
-                        <Entry Text="{Binding TelefonoUsuario}" Placeholder="312 324 5678" Keyboard="Telephone"  FontSize="16" WidthRequest="200"/>
+                        <Entry Text="{Binding TelefonoUsuario}" Placeholder="312 324 5678" Keyboard="Telephone"  FontSize="16" HorizontalOptions="Fill"/>
                     </VerticalStackLayout>
 
                     <VerticalStackLayout>
                         <Label Text="Dirección:" FontAttributes="Bold" FontSize="16"/>
-                        <Entry Text="{Binding DireccionUsuario}" Placeholder="Calle 1 #2-34 Barrio" FontSize="16" WidthRequest="200"/>
+                        <Entry Text="{Binding DireccionUsuario}" Placeholder="Calle 1 #2-34 Barrio" FontSize="16" HorizontalOptions="Fill"/>
                     </VerticalStackLayout>
 
                     <VerticalStackLayout>
                         <Label Text="Edad:" FontAttributes="Bold" FontSize="16"/>
-                        <Entry Text="{Binding EdadUsuario}" Placeholder="18"  Keyboard="Numeric"  FontSize="16" WidthRequest="200"/>
+                        <Entry Text="{Binding EdadUsuario}" Placeholder="18"  Keyboard="Numeric"  FontSize="16" HorizontalOptions="Fill"/>
                     </VerticalStackLayout>
 
                 </VerticalStackLayout>

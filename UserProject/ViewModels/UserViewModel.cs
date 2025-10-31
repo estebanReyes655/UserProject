@@ -29,6 +29,7 @@ namespace UserProject.ViewModels
         public UserViewModel(servicioBaseDatos servicioBD)
         {
             _servicioBD = servicioBD;
+            
         }
 
         //Lista observable para mostrar los usuarios en pantalla 
@@ -58,7 +59,7 @@ namespace UserProject.ViewModels
         public async Task EliminarUsuarioAsync(User user)
         {
             await _servicioBD.EliminarUserAsync(user);
-            await CargarUsuariosAsync();
+            
         }
 
         //Metodo para notificar cambios

@@ -33,7 +33,7 @@ namespace UserProject.ViewModels
         [ObservableProperty] private string correoUsuario;
         [ObservableProperty] private string telefonoUsuario;
         [ObservableProperty] private string direccionUsuario;
-        [ObservableProperty] private int edadUsuario;
+        [ObservableProperty] private int? edadUsuario; //En C# no se permite int nulls enntonces hacemos que pueda ser nulo con ?
         [ObservableProperty] private string firmaUsuario;
 
 
@@ -64,12 +64,13 @@ namespace UserProject.ViewModels
                 correoUser = correoUsuario,
                 telefonoUser = telefonoUsuario,
                 direccionUser = direccionUsuario,
-                edadUser = edadUsuario,
+                edadUser = edadUsuario ?? 0, //Si es null que se le asigne 0 
                 firmaUser = firmaUsuario
             };
 
             await _servicioBD.GuardarUserAsync(nuevoUsuario);
-            await Shell.Current.DisplayAlert("Éxito", "Usuario guardado correctamente", "OK");
+            //await Shell.Current.DisplayAlert("Éxito", "Usuario guardado correctamente", "OK");
+            await Shell.Current.GoToAsync("ViewInicioRoute"); // vuelve a la página anterior (MainPage)
 
 
 

@@ -6,6 +6,12 @@ namespace UserProject.Views
     public partial class MainPage : ContentPage
     {
         private readonly UserViewModel _ViewModel;
+
+        //Usar variable flag, son variable de v/f para indicar estados 
+        //Se usa para evitar que cargue la lista de usuarios dos veces
+        //Comrabamos si ya carggamos los usuario,
+        private bool _usuariosCargados = false; 
+
         // Recibir viewMOdel como parametro
         public MainPage(UserViewModel viewModel)
         {
@@ -21,10 +27,13 @@ namespace UserProject.Views
         //  Este método recarga los usuarios
         protected override async void OnAppearing()
         {
-            base.OnAppearing();
-            await _ViewModel.CargarUsuariosAsync();
-
-            await DisplayAlert("Debug", $"Usuarios cargados: {_ViewModel.Users.Count}", "OK");
+            //Si no se han cragado los usuarios 
+            if (!_usuariosCargados)
+            {
+                //Carga los usuarios y marca como que ya estan cargados
+                await _ViewModel.CargarUsuariosAsync();
+                _usuariosCargados=true;
+            }
         }
 
 

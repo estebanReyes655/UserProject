@@ -28,13 +28,15 @@ namespace UserProject
 
             //Crear ruta para guardar archivo de la BD 
             string dbPath = Path.Combine(FileSystem.AppDataDirectory, "UserProject.db3");
+
+
             //Crear nueva instancia  de BD
-            builder.Services.AddSingleton(new servicioBaseDatos(dbPath));
+            builder.Services.AddSingleton<servicioBaseDatos>(s => new servicioBaseDatos(dbPath));
 
 
             //----------- Registrar el ViewModel y la Vista
-            builder.Services.AddTransient<UserViewModel>();
-            builder.Services.AddSingleton<CrearUserViewModel>();
+            builder.Services.AddSingleton<UserViewModel>();       //  Mantiene la misma lista y conexión 
+            builder.Services.AddTransient<CrearUserViewModel>();  //  Se crea nuevo cada vez que se abre
             // Definicion de vistas
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<ViewCrearUser>();

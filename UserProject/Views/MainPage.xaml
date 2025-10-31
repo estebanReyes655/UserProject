@@ -9,6 +9,7 @@
             <Button 
                         Text="Crear Nuevo"
                         Style="{StaticResource BotonStyle}"
+                        Margin="10, 0"
                         Clicked="CrearNuevo" />
 
             <CollectionView ItemsSource="{Binding Users}">
@@ -17,23 +18,26 @@
                         <Border BackgroundColor="#fff"
                                 Stroke="#ecb300"
                                 StrokeShape="RoundRectangle 12"
-                                Padding="10"
-                                Margin="10, 0">
-                            <HorizontalStackLayout>
-                                <VerticalStackLayout>
+                                Padding="12"
+                                Margin="10, 5">
+                            <Grid ColumnDefinitions="*, Auto" VerticalOptions="Center">
+                                <!-- Contenido a la izquierda -->
+                                <VerticalStackLayout Grid.Column="0">
                                     <Label Text="{Binding nombreUser}" FontSize="18" FontAttributes="Bold"/>
                                     <Label Text="{Binding documentoUser}" FontSize="12" />
                                     <Label Text="{Binding correoUser}" FontSize="12" />
-                                    
                                 </VerticalStackLayout>
-                                <Button 
-                                    
-                                    
-                                    
+
+                                <!-- Botón alineado a la derecha -->
+                                <Button Grid.Column="1"
                                         Text="Ver"
                                         Style="{StaticResource BotonStyle}"
-                                        Clicked="VerOneUser" />
-                            </HorizontalStackLayout>
+                                        WidthRequest="100"
+                                        Shadow="{x:Null}"
+                                        Clicked="VerOneUser"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="End"/>
+                            </Grid>
                         </Border>
                             
                     </DataTemplate>

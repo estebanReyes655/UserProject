@@ -31,10 +31,13 @@ namespace Userproject.Data //namespace para importaciones de codigos
 
         //Guardar el usuario 
         public Task<int> GuardarUserAsync(User user)
-            => conexionBD.InsertOrReplaceAsync(user);
+            => conexionBD.InsertAsync(user);  //Insert Agrega nuevos
 
         //Eliminar usuario
         public Task<int> EliminarUserAsync(User user)
             => conexionBD.DeleteAsync(user);
+
+
+        //Agregar Actualizar Usuario 
     }
 }
