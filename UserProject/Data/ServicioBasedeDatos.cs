@@ -38,6 +38,8 @@ namespace Userproject.Data //namespace para importaciones de codigos
             => conexionBD.DeleteAsync(user);
 
 
-        //Agregar Actualizar Usuario 
+        //Actualizar Usuario
+        public Task<int> UpdateUserAsync(User user)
+            => conexionBD.UpdateAsync(user);
     }
 }

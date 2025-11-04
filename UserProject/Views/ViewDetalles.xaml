@@ -5,23 +5,16 @@
 
     <ScrollView>
         <VerticalStackLayout Spacing="20">
-            <Border BackgroundColor="#ecb300"
+            <Border BackgroundColor="#00833c"
                     Stroke="Transparent"
                     StrokeShape="RoundRectangle 12"
                     Margin="10, 0">
-                <Grid HeightRequest="200">
-                    <Border
-                           WidthRequest="150"
-                           HeightRequest="150"
-                            StrokeShape="RoundRectangle 80"
-                           VerticalOptions="End"
-                           HorizontalOptions="Center">
-                        <Image Source="fotoperfil.jpg"
-                               HeightRequest="150"
-                               WidthRequest="150"
+                <Grid HeightRequest="200" Padding="20">
+                    
+                        <Image Source="logomesetablanco.png" 
+                               HeightRequest="200"
                                Aspect="AspectFill"/>
 
-                    </Border>
                 </Grid>
 
             </Border>
@@ -32,25 +25,27 @@
                                    HorizontalOptions="Center"
                                    VerticalOptions="Center">
 
-                <Border  BackgroundColor="#fff"
+                <Border  BackgroundColor="#66ECB300"
                          Stroke="#ecb300"
                          StrokeShape="RoundRectangle 50"
-                         Padding="15, 5">
+                         Padding="20, 5">
 
                     <Label x:Name="lblNombre"
                            FontSize="18"
+                            FontAttributes="Bold"
                            TextColor="#00833c"
                            VerticalTextAlignment="Center"
                            HorizontalTextAlignment="Center"/>
                 </Border>
 
-                <Border  BackgroundColor="#fff"
+                <Border  BackgroundColor="#66ECB300"
                           Stroke="#ecb300"
                           StrokeShape="RoundRectangle 50"
-                          Padding="15, 5">
+                          Padding="20, 5">
 
                     <Label x:Name="lblCorreo"
                             FontSize="18"
+                            FontAttributes="Bold"
                             TextColor="#00833c"
                             VerticalTextAlignment="Center"
                             HorizontalTextAlignment="Center"/>
@@ -63,35 +58,49 @@
             <Border BackgroundColor="#fff"
                          Stroke="#ecb300"
                          StrokeShape="RoundRectangle 12"
-                         Padding="10"
+                         Padding="0"
                          Margin="10, 0">
-                <VerticalStackLayout Padding="20" Spacing="20">
-                    <Label Text="INFORMACIÓN BÁSICA"
-                           FontAttributes="Bold"
-                           FontSize="18"
-                           TextColor="#00833c"/>
+
+                <VerticalStackLayout Spacing="5">
+
+                    <Border  BackgroundColor="#66ECB300"
+                                 Padding="20"
+                                 StrokeShape="RoundRectangle 12,12,0,0" 
+                                 Margin="0">
+                            <Label Text="INFORMACIÓN BÁSICA"
+                                   FontAttributes="Bold"
+                                   FontSize="18"
+                                   TextColor="#00833c"/>
 
 
-                    <HorizontalStackLayout Spacing="10">
-                        <Label Text="Documento:" FontAttributes="Bold" FontSize="16"/>
-                        <Label x:Name="lblDocumento" FontSize="16"/>
-                    </HorizontalStackLayout>
+                        </Border>
                     
-                    <HorizontalStackLayout Spacing="10">
-                        <Label Text="Telefono:" FontAttributes="Bold" FontSize="16"/>
-                        <Label x:Name="lblTelefono" FontSize="16"/>
-                    </HorizontalStackLayout>
+                    <VerticalStackLayout Padding="20" Spacing="20">
+                        <HorizontalStackLayout Spacing="10">
+                            <Label Text="Documento:" FontAttributes="Bold" FontSize="16"/>
+                            <Label x:Name="lblDocumento" FontSize="16"/>
+                        </HorizontalStackLayout>
 
-                    <HorizontalStackLayout Spacing="10">
-                        <Label Text="Dirección:" FontAttributes="Bold" FontSize="16"/>
-                        <Label x:Name="lblDireccion" FontSize="16"/>
-                    </HorizontalStackLayout>
+                        <HorizontalStackLayout Spacing="10">
+                            <Label Text="Telefono:" FontAttributes="Bold" FontSize="16"/>
+                            <Label x:Name="lblTelefono" FontSize="16"/>
+                        </HorizontalStackLayout>
 
-                    <HorizontalStackLayout Spacing="10">
-                        <Label Text="Edad:" FontAttributes="Bold" FontSize="16"/>
-                        <Label x:Name="lblEdad" FontSize="16"/>
-                    </HorizontalStackLayout>
+                        <HorizontalStackLayout Spacing="10">
+                            <Label Text="Dirección:" FontAttributes="Bold" FontSize="16"/>
+                            <Label x:Name="lblDireccion" FontSize="16"/>
+                        </HorizontalStackLayout>
 
+                        <HorizontalStackLayout Spacing="10">
+                            <Label Text="Edad:" FontAttributes="Bold" FontSize="16"/>
+                            <Label x:Name="lblEdad" FontSize="16"/>
+                        </HorizontalStackLayout>
+
+                    </VerticalStackLayout>
+                    
+                   
+
+                    
 
                 </VerticalStackLayout>
 
@@ -100,34 +109,28 @@
             <Border BackgroundColor="#fff"
              Stroke="#ecb300"
              StrokeShape="RoundRectangle 12"
-             Padding="10"
+             Padding="0"
              Margin="10, 0">
-                <VerticalStackLayout Padding="20" Spacing="20">
-                    <Label Text="FIRMA"
-                           FontAttributes="Bold"
-                           FontSize="18"
-                           TextColor="#00833c"/>
+                <VerticalStackLayout Spacing="5" >
+                    <Border BackgroundColor="#66ECB300"
+                                 Padding="20"
+                                 StrokeShape="RoundRectangle 12,12,0,0" 
+                                 Margin="0">
+                        <Label Text="FIRMA"
+                               FontAttributes="Bold"
+                               FontSize="18"
+                               TextColor="#00833c"/>
+                        
+                    </Border>
+ 
                     
-                    <!--AQUI ESTARIA LA IMAGEN DE LA FIRMA -->
+                    <!--aqui se muestra la imagen de la firma, se llama la PROPIEDADcon x:Name -->
 
-                    <Image x:Name="imgFirma"
-                           HeightRequest="120"
+                    <Image x:Name="imgFirma"                           
                            Aspect="AspectFit"
-                           BackgroundColor="#f7f7f7"/>
+                           HeightRequest="200"/>
 
-                    <HorizontalStackLayout Spacing="20" 
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center">
-                        <Button 
-                        Text="Editar Firma"
-                        Style="{StaticResource BotonStyle}"
-                        Clicked="EditarFirma" />
 
-                        <Button 
-                        Text="Ver Firma"
-                        Style="{StaticResource BotonStyle}"
-                        Clicked="VerFirma" />
-                    </HorizontalStackLayout>
 
 
 
@@ -136,12 +139,13 @@
             </Border>
 
             <HorizontalStackLayout Spacing="20" 
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="Center">
+                                   Padding="20"
+                                   HorizontalOptions="Center">
 
                 <Button 
                     Text="Editar"
                     Style="{StaticResource BotonStyle}"
+                    Padding="30, 5"
                     Clicked="EditarInfo" />
             </HorizontalStackLayout>
 

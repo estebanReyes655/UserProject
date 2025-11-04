@@ -91,7 +91,7 @@
             </Border>
 
 
-            <VerticalStackLayout Padding="20" Spacing="20">
+            <VerticalStackLayout Padding="20" Spacing="20"  Margin="10">
                 <Button 
                         Text="Guardar Informacion"
                         Style="{StaticResource BotonStyle}"

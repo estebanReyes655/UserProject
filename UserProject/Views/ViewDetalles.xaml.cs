@@ -1,4 +1,5 @@
 using CommunityToolkit.Maui.Extensions;
+using System.Threading.Tasks;
 using UserProject.Models;
 namespace UserProject.Views;
 
@@ -11,9 +12,11 @@ public partial class ViewDetalles : ContentPage
 		InitializeComponent();
 	}
 
+    //Variable privada que guarda el usuario seleccionado 
     private User _userSeleccionado;
     
 
+    //Propiedadd publica que permite acceder al usuario seleccionado, usando setter y getter 
     public User userSeleccionado
     {
         get => _userSeleccionado;
@@ -24,11 +27,13 @@ public partial class ViewDetalles : ContentPage
         }
     }
 
+
     private void MostrarDatos()
     {
+        //Verifica que allan datos en el usuario seleccionado 
         if(_userSeleccionado == null)
             return;
-
+        //Trae los datos del usuario, y los ubica en los laberls 
         lblNombre.Text = _userSeleccionado.nombreUser;
         lblDocumento.Text = _userSeleccionado.documentoUser;
         lblCorreo.Text = _userSeleccionado.correoUser;
@@ -36,9 +41,8 @@ public partial class ViewDetalles : ContentPage
         lblDireccion.Text = _userSeleccionado.direccionUser;
         lblEdad.Text = $"{_userSeleccionado.edadUser} años";
 
-        //Descodificar el base64 para mostrar a imagen 
-
-        if (!string.IsNullOrWhiteSpace(_userSeleccionado.firmaUser))
+        //Descodificar el base64 para mostrar a imagen
+        if (!string.IsNullOrWhiteSpace(_userSeleccionado.firmaUser)) //Comprobar que el campo no este vacio 
         {
             try
             {
@@ -57,21 +61,15 @@ public partial class ViewDetalles : ContentPage
 
     }
 
-    private void verMasInfo(object sender, EventArgs e)
+    //Metodo para ir a editar  editar  Infomacion
+    private async void EditarInfo(object sender, EventArgs e)
     {
-
-    }
-    private void EditarFirma(object sender, EventArgs e)
-    {
-
-    }
-    private void VerFirma(object sender, EventArgs e)
-    {
-
-    }
-    private void EditarInfo(object sender, EventArgs e)
-    {
-
+        //Creacion de diccionario, este lleva clave = valor 
+        var navParam = new Dictionary<string, object>
+        {
+            {"userSeleccionado", _userSeleccionado } // Parametro y su valor 
+        };
+        await Shell.Current.GoToAsync("ViewCrearRoute", navParam); //Navegacion a la page para editar 
     }
 
     

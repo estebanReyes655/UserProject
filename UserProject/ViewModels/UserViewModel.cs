@@ -15,7 +15,8 @@ using UserProject.Models;
 
 namespace UserProject.ViewModels
 {
-    public class UserViewModel : INotifyPropertyChanged //Esto es para notificar actualizaciones a la vista, en caso de no usar esto se usa el 'BaseModel'
+    //El modificador partial se usa para que no allan errores con atributos del CommunityKit 
+    public partial class UserViewModel : INotifyPropertyChanged //Esto es para notificar actualizaciones a la vista, en caso de no usar esto se usa el 'BaseModel'
     {
         //Evento de 'INotifyPropertyChanged'  para notificar cuando algun dato cambie
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -75,7 +76,6 @@ namespace UserProject.ViewModels
         public async Task VerDetalles(User userSeleccionado)
         {
             if (userSeleccionado == null)
-            {
                 return;
 
                 var navParam = new Dictionary<string, object>
@@ -84,7 +84,7 @@ namespace UserProject.ViewModels
                 };
 
                 await Shell.Current.GoToAsync("ViewDetallesRoute", navParam);
-            }
+       
         }
 
 
