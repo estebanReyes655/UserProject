@@ -21,14 +21,18 @@
 
 
 
-            <HorizontalStackLayout Spacing="15"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="Center">
+            <FlexLayout Direction="Row"
+                        Wrap="Wrap"
+                        JustifyContent="Center"
+                        AlignItems="Center"
+                        Margin="10" >
+
 
                 <Border  BackgroundColor="#66ECB300"
                          Stroke="#ecb300"
                          StrokeShape="RoundRectangle 50"
-                         Padding="20, 5">
+                         Padding="20, 5"
+                         Margin="5">
 
                     <Label x:Name="lblNombre"
                            FontSize="18"
@@ -41,7 +45,8 @@
                 <Border  BackgroundColor="#66ECB300"
                           Stroke="#ecb300"
                           StrokeShape="RoundRectangle 50"
-                          Padding="20, 5">
+                          Padding="20, 5"
+                          Margin="5">
 
                     <Label x:Name="lblCorreo"
                             FontSize="18"
@@ -53,7 +58,7 @@
 
 
 
-            </HorizontalStackLayout>
+            </FlexLayout>
 
             <Border BackgroundColor="#fff"
                          Stroke="#ecb300"
